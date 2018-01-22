@@ -1,0 +1,4 @@
+Name: View in Excel
+Description: View a data.frame in Excel.
+Binding: view_in_xl
+Interactive: true
