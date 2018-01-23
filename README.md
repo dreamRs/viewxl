@@ -4,6 +4,7 @@
 
 
 [![Travis-CI Build Status](https://travis-ci.org/dreamRs/viewinexcel.svg?branch=master)](https://travis-ci.org/dreamRs/viewinexcel)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 
 An addin to interactively export data.frame from global environment into Excel with [`writexl`](https://github.com/ropensci/writexl).
