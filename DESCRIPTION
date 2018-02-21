@@ -2,8 +2,8 @@ Package: viewxl
 Type: Package
 Title: View data.frames in 'Excel'
 Version: 0.1.0
-Authors@R: c(person("Fanny", "Meyer", , "fanny.meyer@dreamrs.fr", c("aut")),
-  person("Victor", "Perrier", , "victor.perrier@dreamrs.fr", c("aut", "cre")))
+Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
+  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")))
 Maintainer: <victor.perrier@dreamrs.fr>
 Description: 'RStudio' addin to open a data.frame in 'Excel'.
 License: GPL-3 | file LICENSE
