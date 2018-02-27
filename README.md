@@ -12,7 +12,10 @@ An addin to interactively export data.frame from global environment into Excel w
 To try it, run : 
 
 ```r
-source("https://install-github.me/dreamRs/viewinexcel")
+source("https://install-github.me/dreamRs/viewxl")
+
+# or
+devtools::installl_github("dreamRs/viewxl")
 ```
 
 Then launch the addin via the RStudio menu.
