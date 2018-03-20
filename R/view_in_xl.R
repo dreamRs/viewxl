@@ -28,6 +28,7 @@ view_in_xl <- function(df = NULL) {
     df <- context$selection[[1]]$text
     is_df <- tryCatch({
       test <- get(df, envir = .GlobalEnv)
+      test <- as.data.frame(test)
       list(res = is.data.frame(test))
     }, error = function(e) {
       list(res = FALSE)
@@ -42,7 +43,13 @@ view_in_xl <- function(df = NULL) {
   }
   if (length(df) == 1) {
     tmp <- tempfile(fileext = ".xlsx")
-    write_xlsx(x = get_df(df), path = tmp)
+    df <- get_df(df)
+    if (is.null(df)) {
+      message("Selected object must be a data.frame in GlobalEnv.")
+      return(invisible())
+    }
+    df <- as.data.frame(df)
+    write_xlsx(x = df, path = tmp)
     browseURL(url = tmp)
     return(invisible(tmp))
   } else {
