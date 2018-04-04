@@ -15,7 +15,7 @@ To try it, run :
 source("https://install-github.me/dreamRs/viewxl")
 
 # or
-devtools::installl_github("dreamRs/viewxl")
+devtools::install_github("dreamRs/viewxl")
 ```
 
 Then launch the addin via the RStudio menu.
