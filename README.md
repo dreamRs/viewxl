@@ -12,9 +12,13 @@ An addin to interactively export data.frame from global environment into Excel w
 To try it, run : 
 
 ```r
+# with remotes
+remotes::install_github("dreamRs/viewxl")
+
+# or with install-github.me service (based on remotes)
 source("https://install-github.me/dreamRs/viewxl")
 
-# or
+# or with devtools:
 devtools::install_github("dreamRs/viewxl")
 ```
 
