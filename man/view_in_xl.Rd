@@ -7,7 +7,7 @@
 view_in_xl(df = NULL)
 }
 \arguments{
-\item{df}{the name of \code{data.frame}, if not provided, an addin is launched.}
+\item{df}{The name of a \code{data.frame} or a \code{data.frame} itself, if not provided, an addin is launched.}
 }
 \description{
 Open a data.frame in 'Excel'
@@ -20,6 +20,9 @@ view_in_xl()
 
 # or pass the name of a data.frame
 view_in_xl("iris")
+
+# or directly the object
+view_in_xl(iris)
 
 }
 }

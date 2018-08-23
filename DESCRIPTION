@@ -1,7 +1,7 @@
 Package: viewxl
 Type: Package
 Title: View data.frames in 'Excel'
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")))
 Description: 'RStudio' addin to open a data.frame in 'Excel'.
@@ -12,4 +12,4 @@ Imports: writexl,
     rstudioapi,
     miniUI,
     shiny
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

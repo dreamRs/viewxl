@@ -2,7 +2,7 @@
 
 #' Open a data.frame in 'Excel'
 #'
-#' @param df the name of a \code{data.frame}, if not provided, an addin is launched.
+#' @param df The name of a \code{data.frame} or a \code{data.frame} itself, if not provided, an addin is launched.
 #'
 #' @export
 #'
@@ -14,6 +14,9 @@
 #'
 #' # or pass the name of a data.frame
 #' view_in_xl("iris")
+#' 
+#' # or directly the object
+#' view_in_xl(iris)
 #'
 #' }
 #' @importFrom miniUI miniPage miniButtonBlock miniContentPanel
@@ -36,6 +39,8 @@ view_in_xl <- function(df = NULL) {
     if (!is_df$res) {
       df <- search_obj()
     }
+  } else if (is.data.frame(df)) {
+    df <- deparse(substitute(df))
   }
   if (length(df) == 0) {
     message("It seems that there are no data.frames in global environment...")
