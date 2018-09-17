@@ -20,33 +20,35 @@
 #'
 #' }
 #' @importFrom miniUI miniPage miniButtonBlock miniContentPanel
-#' @importFrom rstudioapi getActiveDocumentContext
+#' @importFrom rstudioapi getSourceEditorContext
 #' @importFrom shiny actionLink actionButton icon observeEvent
 #'  runGadget dialogViewer tags stopApp
 #' @importFrom utils browseURL
 #' @importFrom writexl write_xlsx
 view_in_xl <- function(df = NULL) {
   if (is.null(df)) {
-    context <- getActiveDocumentContext()
-    df <- context$selection[[1]]$text
-    is_df <- tryCatch({
-      test <- get(df, envir = .GlobalEnv)
-      test <- as.data.frame(test)
-      list(res = is.data.frame(test))
-    }, error = function(e) {
-      list(res = FALSE)
-    })
-    if (!is_df$res) {
+    context <- try(rstudioapi::getSourceEditorContext(), silent = TRUE)
+    if ("try-error" %in% class(context)) {
       df <- search_obj()
+    } else {
+      df <- context$selection[[1]]$text
+      is_df <- tryCatch({
+        test <- get(df, envir = .GlobalEnv)
+        test <- as.data.frame(test)
+        list(res = is.data.frame(test))
+      }, error = function(e) {
+        list(res = FALSE)
+      })
+      if (!is_df$res) {
+        df <- search_obj()
+      }
     }
-  } else if (is.data.frame(df)) {
-    df <- deparse(substitute(df))
   }
-  if (length(df) == 0) {
+  if (is.character(df) & length(df) == 0) {
     message("It seems that there are no data.frames in global environment...")
     return(invisible())
   }
-  if (length(df) == 1) {
+  if ((is.character(df) & length(df) == 1) | is.data.frame(df)) {
     tmp <- tempfile(fileext = ".xlsx")
     df <- get_df(df)
     if (is.null(df)) {

@@ -10,6 +10,8 @@
 #' @importFrom utils data
 #'
 get_df <- function(df, env = globalenv()) {
+  if (is.data.frame(df))
+    return(df)
   if (df %in% ls(name = env)) {
     get(x = df, envir = env)
   } else {
