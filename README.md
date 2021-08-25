@@ -1,42 +1,38 @@
 # viewxl
 
-> An addin to view data.frame in Excel
+> An addin to interactively export `data.frame` from global environment into Excel with [`writexl`](https://github.com/ropensci/writexl).
 
 
-[![Travis-CI Build Status](https://travis-ci.org/dreamRs/viewxl.svg?branch=master)](https://travis-ci.org/dreamRs/viewxl)
+<!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![R-CMD-check](https://github.com/dreamRs/viewxl/workflows/R-CMD-check/badge.svg)](https://github.com/dreamRs/viewxl/actions)
+<!-- badges: end -->
 
 
-An addin to interactively export data.frame from global environment into Excel with [`writexl`](https://github.com/ropensci/writexl).
+## Installation
 
-To try it, run : 
+Install from GitHub with:
 
 ```r
-# with remotes
 remotes::install_github("dreamRs/viewxl")
-
-# or with install-github.me service (based on remotes)
-source("https://install-github.me/dreamRs/viewxl")
-
-# or with devtools:
-devtools::install_github("dreamRs/viewxl")
 ```
 
-Then launch the addin via the RStudio menu.
 
-If you have selected a `data.frame` in your script, then this `data.frame`is open in Excel. Otherwise a window will appear :
-
+## Usage
 
 
-* select a `data.frame` then launch the addin, The selected `data.frame` will be open in Excel directly :
+* Select a `data.frame` then launch the addin via RStudio addins menu or with shortcut, the selected `data.frame` will be open in Excel directly:
 
 ![](screenshots/selection_df.png)
 
 
-
-
-* If no selection is made, a Shiny gadget is launched to select `data.frame` to open :
+* If no selection is made, a Shiny gadget is launched to select `data.frame` to open:
 
 ![](screenshots/addin.png)
 
 
+* Or use in console with:
+
+```r
+viewxl::view_in_xl(mtcars)
+``` 

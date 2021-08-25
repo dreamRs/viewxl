@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^screenshots$
 ^\.travis\.yml$
+^LICENSE\.md$
+^\.github$
